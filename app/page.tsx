@@ -41,9 +41,11 @@ export default function Home() {
       </a>
       <main id="main">
         <div className="home-stage">
-          <HeroMedia source={mediaAssets.hero} />
+          <HeroMedia
+            source={mediaAssets.hero}
+            poster={mediaAssets.heroPoster}
+          />
           <div className="home-stage-shade" aria-hidden="true" />
-          <div className="home-stage-glow" aria-hidden="true" />
           <SiteHeader />
           <section className="hero wrap" aria-labelledby="hero-title">
             <div className="hero-copy">
@@ -73,45 +75,14 @@ export default function Home() {
                 <span>Doordacht advies. Vakkundig uitgevoerd.</span>
               </div>
             </div>
-            <aside className="hero-console" aria-label="Ontdek onze technieken">
-              <div className="console-top">
-                <span className="status-dot" />
-                <span>SLIM VERBONDEN.</span>
-                <span className="console-index">01 / 03</span>
-              </div>
-              <div className="console-heading">
-                <Lightbulb size={27} strokeWidth={1.3} />
-                <h2>
-                  Techniek die werkt.
-                  <br />
-                  <span>Comfort dat je voelt.</span>
-                </h2>
-              </div>
-              <nav aria-label="Direct naar onze expertise">
-                <a href="/expertise#verlichting">
-                  <span>
-                    <Lightbulb size={18} /> Verlichting op maat
-                  </span>
-                  <ArrowUpRight size={18} />
-                </a>
-                <a href="/expertise#slim-wonen">
-                  <span>
-                    <Zap size={18} /> Slim wonen & werken
-                  </span>
-                  <ArrowUpRight size={18} />
-                </a>
-                <a href="/expertise#laden">
-                  <span>
-                    <PlugZap size={18} /> Energie voor morgen
-                  </span>
-                  <ArrowUpRight size={18} />
-                </a>
-              </nav>
-              <div className="console-footer">
-                <span>DOORDACHT. TOT IN ELK DETAIL.</span>
-                <span className="console-line" />
-              </div>
-            </aside>
+            <a className="hero-scene-card" href="/expertise#verlichting">
+              <Lightbulb size={24} strokeWidth={1.3} />
+              <span>
+                <small>LICHT. RUIMTE. COMFORT.</small>
+                <strong>Techniek die je voelt.</strong>
+              </span>
+              <ArrowUpRight size={21} />
+            </a>
           </section>
           <div className="hero-foot wrap">
             <span>VOOR WONINGEN & ONDERNEMINGEN</span>

@@ -17,60 +17,16 @@
 }
 .home-stage > .hero-image,
 .home-stage > .hero-motion {
-  position: absolute;
-  inset: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: 65% center;
-  z-index: -3;
-}
-.home-stage > .hero-motion {
-  filter: saturate(0.85) contrast(1.07);
+  filter: none;
 }
 .home-stage-shade {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(5, 18, 24, 0.94) 0%,
-      rgba(5, 19, 25, 0.78) 32%,
-      rgba(5, 20, 25, 0.35) 65%,
-      rgba(5, 19, 23, 0.16) 100%
-    ),
-    linear-gradient(
-      0deg,
-      #09161b 0%,
-      rgba(8, 23, 27, 0.08) 27%,
-      rgba(8, 23, 27, 0.1) 75%,
-      rgba(8, 23, 27, 0.65) 100%
-    );
-  pointer-events: none;
-}
-.home-stage-glow {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(
-      ellipse at 95% 15%,
-      rgba(66, 233, 217, 0.29),
-      transparent 46%
-    ),
-    radial-gradient(
-      ellipse at 76% 81%,
-      rgba(188, 253, 100, 0.16),
-      transparent 42%
-    ),
-    radial-gradient(
-      ellipse at 0% 60%,
-      rgba(23, 111, 132, 0.22),
-      transparent 55%
-    );
-  mix-blend-mode: screen;
+    linear-gradient(90deg, #050e1326, transparent 60%),
+    linear-gradient(0deg, #09161b, transparent 24%);
 }
 .home-stage > .dark-top {
   position: relative;
@@ -197,102 +153,51 @@
   margin-top: 33px;
   font-size: 0.875rem;
 }
-.hero-console {
+.hero-scene-card {
   align-self: end;
-  margin-bottom: 38px;
-  background: linear-gradient(145deg, #dfefde24, #75b9b61a 50%, #112d3380);
-  border: 1px solid #e1ffee45;
-  border-radius: 20px;
-  padding: 23px;
-  -webkit-backdrop-filter: blur(25px) saturate(130%);
-  backdrop-filter: blur(25px) saturate(130%);
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  width: min(100%, 345px);
+  margin-bottom: 40px;
+  padding: 22px;
+  border: 1px solid #f5edcf38;
+  border-radius: 16px;
+  background: linear-gradient(125deg, #f5edcf16, #07131970);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
   box-shadow:
-    inset 0 1px 0 #fff3,
-    0 25px 65px #0003;
-}
-.console-top {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  color: #dafbb8;
-  letter-spacing: 1px;
-  font-size: 0.75rem;
-}
-.console-top .status-dot {
-  color: #cbfa99;
-  box-shadow: 0 0 12px #d7ffa880;
-}
-.console-index {
-  margin-left: auto;
-  color: #d2e1d6;
-  font-size: 0.75rem;
-  letter-spacing: 0;
-}
-.console-heading {
-  display: flex;
-  align-items: flex-start;
-  gap: 13px;
-  margin-top: 28px;
-  margin-bottom: 24px;
-}
-.console-heading > svg {
-  flex-shrink: 0;
-  color: #d7fca5;
-  margin-top: 3px;
-}
-.hero-console h2 {
-  font-size: 1.35rem;
-  line-height: 1.45;
-  letter-spacing: -0.55px;
-  font-weight: 450;
-}
-.hero-console h2 span {
-  color: #d2e6d9;
-}
-.hero-console nav {
-  display: flex;
-  flex-direction: column;
-}
-.hero-console nav a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 15px 2px;
-  border-top: 1px solid #d3fbe126;
-  font-size: 0.875rem;
-  color: #f0f9ef;
+    inset 0 1px 0 #fff2,
+    0 16px 48px #0002;
   transition:
-    color 0.2s,
-    padding 0.2s;
+    border-color 0.25s,
+    background 0.25s;
 }
-.hero-console nav a > span {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.hero-scene-card:hover {
+  border-color: #e6f8b680;
+  background: #cce3c51a;
 }
-.hero-console nav a > span > svg {
-  color: #b8d7c5;
-  stroke-width: 1.4;
+.hero-scene-card > svg {
+  flex-shrink: 0;
+  color: #e7e7bf;
 }
-.hero-console nav a:hover {
-  color: var(--lime);
-  padding-inline: 7px;
+.hero-scene-card > svg:last-child {
+  margin-left: auto;
 }
-.console-footer {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  font-size: 0.75rem;
-  color: #c1d6c7;
-  margin-top: 18px;
-  line-height: 1.6;
+.hero-scene-card span {
+  display: grid;
+  gap: 7px;
 }
-.console-line {
-  height: 1px;
-  min-width: 20px;
-  flex: 1;
-  background: linear-gradient(90deg, #d6fb9d, transparent);
+.hero-scene-card small {
+  color: #c5d1c5;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+}
+.hero-scene-card strong {
+  font-size: 1.05rem;
+  font-weight: 450;
+  letter-spacing: -0.3px;
 }
 .home-stage .hero-foot {
   position: relative;
@@ -493,10 +398,6 @@
   .home-stage h1 {
     font-size: 6.6rem;
   }
-  .hero-console {
-    margin-bottom: 55px;
-    padding: 30px;
-  }
 }
 @media (max-width: 1100px) {
   .home-stage .header {
@@ -515,9 +416,6 @@
   }
   .home-stage h1 {
     font-size: clamp(3.35rem, 6.1vw, 4.8rem);
-  }
-  .hero-console {
-    padding: 21px;
   }
   .home-stage .hero-actions {
     gap: 13px;
@@ -591,23 +489,6 @@
     margin-top: 24px;
     line-height: 1.5;
   }
-  .hero-console {
-    width: 100%;
-    max-width: 450px;
-    margin: 14px 0 3px auto;
-    padding: 22px;
-    border-radius: 17px;
-  }
-  .console-heading {
-    margin-top: 19px;
-    margin-bottom: 16px;
-  }
-  .hero-console h2 {
-    font-size: 1.25rem;
-  }
-  .hero-console nav a {
-    padding: 13px 0;
-  }
   .home-stage .hero-foot {
     height: 83px;
     padding-right: 58px;
@@ -632,13 +513,8 @@
   }
   .home-stage-shade {
     background:
-      linear-gradient(180deg, #08192391, #081923b8 25%, #08192375 70%, #09161b),
+      linear-gradient(180deg, #08192366, #08192399 25%, #08192322 75%, #09161b),
       linear-gradient(90deg, #081923a6, transparent);
-  }
-  .home-stage-glow {
-    background:
-      radial-gradient(ellipse at 100% 15%, #5cf6d339, transparent 56%),
-      radial-gradient(ellipse at 0% 80%, #d2f88226, transparent 60%);
   }
   .home-page .contact-section h2 span {
     color: #dcffa8;
@@ -667,21 +543,34 @@
   .home-stage .header {
     background: #10262bef;
   }
-  .hero-console {
-    background: #163034f5;
-  }
   .home-stage .hero-film-button {
     background: #163034;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-console nav a {
-    transition: none;
-  }
   .home-stage .hero-copy {
     animation: none;
   }
   .home-stage .button-lime:hover {
     transform: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-scene-card {
+    justify-self: end;
+    margin: 85px 0 5px;
+    padding: 18px;
+    width: min(100%, 330px);
+  }
+}
+@supports not (backdrop-filter: blur(1px)) {
+  .hero-scene-card {
+    background: #142329ef;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-scene-card {
+    transition: none;
   }
 }

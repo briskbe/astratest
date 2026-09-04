@@ -19,7 +19,13 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 
-export function HeroMedia({ source }: { source: string | null }) {
+export function HeroMedia({
+  source,
+  poster,
+}: {
+  source: string | null;
+  poster: string;
+}) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const manuallyPaused = useRef(false);
   const inView = useRef(true);
@@ -98,10 +104,10 @@ export function HeroMedia({ source }: { source: string | null }) {
     <>
       <img
         className="hero-image"
-        src="/images/armatex-villa.jpg"
-        width="1536"
-        height="1024"
-        alt="Sfeerbeeld van een moderne woning met warme gevel- en tuinverlichting bij avond"
+        src={poster}
+        width="1600"
+        height="900"
+        alt="Gegenereerde architecturale lichtstudie met warme lichtlijnen en donker glas"
         fetchPriority="high"
       />
       {source && !failed && (
@@ -114,8 +120,8 @@ export function HeroMedia({ source }: { source: string | null }) {
             loop
             playsInline
             preload="none"
-            poster="/images/armatex-villa.jpg"
-            aria-label="Stille sfeermontage van een warm verlichte woning"
+            poster={poster}
+            aria-label="Stille architecturale lichtstudie"
             data-ready={ready}
             onLoadedData={() => setReady(true)}
             onPlay={() => setPlaying(true)}
@@ -130,7 +136,9 @@ export function HeroMedia({ source }: { source: string | null }) {
             type="button"
             onClick={togglePlayback}
             aria-label={
-              playing ? 'Pauzeer de sfeermontage' : 'Speel de sfeermontage af'
+              playing
+                ? 'Pauzeer de achtergrondfilm'
+                : 'Speel de achtergrondfilm af'
             }
             title={playing ? 'Pauzeer beweging' : 'Speel beweging af'}
           >
@@ -355,7 +363,7 @@ export function AtmosphereFilm({ source }: { source: string | null }) {
                 type="button"
                 className="film-play"
                 onClick={playFilm}
-                aria-label="Speel de sfeermontage af"
+                aria-label="Speel de achtergrondfilm af"
               >
                 <Play size={27} fill="currentColor" strokeWidth={1.3} />
               </button>
