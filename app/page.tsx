@@ -1,15 +1,17 @@
 import {
   ArrowDown,
-  ArrowRight,
   ArrowUpRight,
   Check,
   ChevronRight,
   Lightbulb,
   PlugZap,
+  Play,
   ShieldCheck,
   Zap,
 } from 'lucide-react';
 import { MobileNavigation, ServiceOverview } from './site-interactions';
+import { AtmosphereFilm, HeroMedia, InspirationGallery } from './site-media';
+import { mediaAssets } from './media-assets';
 
 function Brand({ footer = false }: { footer?: boolean }) {
   return (
@@ -60,6 +62,7 @@ export default function Home() {
           <Brand />
           <nav className="desktop-nav" aria-label="Hoofdnavigatie">
             <a href="#expertise">Onze expertise</a>
+            <a href="#inspiratie">In beeld</a>
             <a href="#aanpak">Onze aanpak</a>
             <a href="#armatex">Over Armatex</a>
           </nav>
@@ -95,8 +98,8 @@ export default function Home() {
                 <a className="button button-lime" href="#expertise">
                   Ontdek onze expertise <ArrowUpRight size={20} />
                 </a>
-                <a className="text-link" href="#aanpak">
-                  Zo werken we <ArrowRight size={17} />
+                <a className="text-link" href="#sfeerfilm">
+                  Bekijk de sfeerfilm <Play size={16} />
                 </a>
               </div>
               <div className="hero-assurance">
@@ -105,14 +108,7 @@ export default function Home() {
               </div>
             </div>
             <div className="hero-visual">
-              <img
-                className="hero-image"
-                src="/images/armatex-villa.jpg"
-                width="1536"
-                height="1024"
-                alt="Sfeerbeeld van een moderne woning met warme gevel- en tuinverlichting bij avond"
-                fetchPriority="high"
-              />
+              <HeroMedia source={mediaAssets.hero} />
               <div className="visual-label">
                 <span className="status-dot" /> SLIM VAN BINNEN. STERK VAN
                 BUITEN.
@@ -192,6 +188,35 @@ export default function Home() {
           </div>
         </section>
         <section
+          className="visual-section"
+          id="inspiratie"
+          aria-labelledby="visual-title"
+        >
+          <div className="wrap">
+            <p className="section-label">
+              <span>02</span> RUIMTE VOOR INSPIRATIE
+            </p>
+            <div className="section-heading visual-heading">
+              <h2 id="visual-title">
+                Techniek die je ziet.
+                <br />
+                <span>Comfort dat je voelt.</span>
+              </h2>
+              <p>
+                Een huis wordt pas een thuis als alles samenkomt. Ontdek wat
+                doordachte verlichting en slimme energie kunnen doen.
+              </p>
+            </div>
+            <InspirationGallery />
+            <div className="visual-caption">
+              <span>Gegenereerde sfeerbeelden ter inspiratie.</span>
+              <a href="#contact">
+                Wat kunnen we voor jouw ruimte doen? <ArrowUpRight size={17} />
+              </a>
+            </div>
+          </div>
+        </section>
+        <section
           className="about-section"
           id="armatex"
           aria-labelledby="about-title"
@@ -199,7 +224,7 @@ export default function Home() {
           <div className="wrap about-grid">
             <div className="about-heading">
               <p className="section-label">
-                <span>02</span> DE KRACHT VAN ARMATEX
+                <span>03</span> DE KRACHT VAN ARMATEX
               </p>
               <h2 id="about-title">
                 Achter goed comfort
@@ -249,12 +274,39 @@ export default function Home() {
           </div>
         </section>
         <section
+          className="film-section wrap"
+          id="sfeerfilm"
+          aria-labelledby="film-title"
+        >
+          <div className="film-heading">
+            <div>
+              <p className="section-label">
+                <span>04</span> ARMATEX IN BEELD
+              </p>
+              <h2 id="film-title">
+                Van een goed idee
+                <br />
+                naar een fijn gevoel.
+              </h2>
+            </div>
+            <p>
+              Een warme avond. Een huis dat met je meedenkt. En energie voor de
+              volgende dag.
+            </p>
+          </div>
+          <AtmosphereFilm source={mediaAssets.film} />
+          <p className="film-note">
+            Een korte montage van gegenereerde sfeerbeelden. Verlichting,
+            wooncomfort en laadoplossingen in één verhaal.
+          </p>
+        </section>
+        <section
           className="approach section wrap"
           id="aanpak"
           aria-labelledby="approach-title"
         >
           <p className="section-label">
-            <span>03</span> ONZE AANPAK
+            <span>05</span> ONZE AANPAK
           </p>
           <div className="section-heading">
             <h2 id="approach-title">
@@ -323,6 +375,7 @@ export default function Home() {
           </p>
           <nav aria-label="Footernavigatie">
             <a href="#expertise">Expertise</a>
+            <a href="#inspiratie">In beeld</a>
             <a href="#aanpak">Aanpak</a>
             <a href="#contact">Contact</a>
           </nav>

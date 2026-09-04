@@ -123,6 +123,7 @@ export function MobileNavigation() {
           <nav aria-label="Mobiele navigatie">
             {[
               ['Onze expertise', '#expertise'],
+              ['In beeld', '#inspiratie'],
               ['Onze aanpak', '#aanpak'],
               ['Over Armatex', '#armatex'],
               ['Contact', '#contact'],
