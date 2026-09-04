@@ -9,29 +9,10 @@ import {
   ShieldCheck,
   Zap,
 } from 'lucide-react';
-import { MobileNavigation, ServiceOverview } from './site-interactions';
+import { ServiceOverview } from './site-interactions';
+import { Brand, SiteHeader } from './site-header';
 import { AtmosphereFilm, HeroMedia, InspirationGallery } from './site-media';
 import { mediaAssets } from './media-assets';
-
-function Brand({ footer = false }: { footer?: boolean }) {
-  return (
-    <a
-      className={`brand${footer ? ' brand-footer' : ''}`}
-      href="#top"
-      aria-label="Armatex — naar boven"
-    >
-      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <path
-          d="M4 33 17 7h8L12 33H4Zm14 0 9-18 9 18h-9l-4-8-4 8h-1Z"
-          fill="currentColor"
-        />
-      </svg>
-      <span>
-        armatex<span className="brand-point">.</span>
-      </span>
-    </a>
-  );
-}
 
 const steps = [
   {
@@ -57,23 +38,7 @@ export default function Home() {
       <a className="skip-link" href="#main">
         Naar de inhoud
       </a>
-      <div className="dark-top">
-        <header className="header wrap">
-          <Brand />
-          <nav className="desktop-nav" aria-label="Hoofdnavigatie">
-            <a href="#expertise">Onze expertise</a>
-            <a href="#inspiratie">In beeld</a>
-            <a href="#aanpak">Onze aanpak</a>
-            <a href="#armatex">Over Armatex</a>
-          </nav>
-          <div className="header-right">
-            <a className="header-contact" href="#contact">
-              Bespreek je project <ArrowUpRight size={18} />
-            </a>
-            <MobileNavigation />
-          </div>
-        </header>
-      </div>
+      <SiteHeader />
       <main id="main">
         <div className="dark-top">
           <section className="hero wrap" aria-labelledby="hero-title">
@@ -95,7 +60,7 @@ export default function Home() {
                 onderneming.
               </p>
               <div className="hero-actions">
-                <a className="button button-lime" href="#expertise">
+                <a className="button button-lime" href="/expertise">
                   Ontdek onze expertise <ArrowUpRight size={20} />
                 </a>
                 <a className="text-link" href="#sfeerfilm">
@@ -374,7 +339,7 @@ export default function Home() {
             Helemaal op morgen.
           </p>
           <nav aria-label="Footernavigatie">
-            <a href="#expertise">Expertise</a>
+            <a href="/expertise">Expertise</a>
             <a href="#inspiratie">In beeld</a>
             <a href="#aanpak">Aanpak</a>
             <a href="#contact">Contact</a>

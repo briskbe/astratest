@@ -103,7 +103,7 @@ export function ServiceOverview() {
   );
 }
 
-export function MobileNavigation() {
+export function MobileNavigation({ active }: { active?: 'expertise' }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="mobile-menu">
@@ -122,13 +122,22 @@ export function MobileNavigation() {
           </SheetClose>
           <nav aria-label="Mobiele navigatie">
             {[
-              ['Onze expertise', '#expertise'],
-              ['In beeld', '#inspiratie'],
-              ['Onze aanpak', '#aanpak'],
-              ['Over Armatex', '#armatex'],
-              ['Contact', '#contact'],
+              ['Onze expertise', '/expertise'],
+              ['In beeld', '/#inspiratie'],
+              ['Onze aanpak', '/#aanpak'],
+              ['Over Armatex', '/#armatex'],
+              ['Contact', '/#contact'],
             ].map(([label, href], i) => (
-              <a href={href} key={href} onClick={() => setOpen(false)}>
+              <a
+                href={href}
+                key={href}
+                onClick={() => setOpen(false)}
+                aria-current={
+                  active === 'expertise' && href === '/expertise'
+                    ? 'page'
+                    : undefined
+                }
+              >
                 <span>0{i + 1}</span>
                 {label}
                 <ArrowUpRight size={23} />
