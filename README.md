@@ -23,7 +23,7 @@ The user supplied the logos and 55 design images in Brisk.zip, and named NMBS, I
 
 ## Portfolio images
 
-Website captures were obtained through Microlink on 8 September 2026 and stored locally in `public/brisk/websites`. No visitor-time API request or API key is needed. The capture for Roetfilterlatenreinigen did not render its content, so that project uses a name card and working external link. Some live pages include their own cookie/promotion overlays or incomplete hero animation in their captures. All 17 original URLs remain available.
+Website captures were obtained through Microlink on 8 September 2026 and stored locally in `public/brisk/websites`. TCKO, City Housing and Roetfilterlatenreinigen were recaptured directly in Chrome after their real page content and animations loaded. The updated captures have new asset URLs to avoid stale cached previews. No visitor-time API request or API key is needed. Some other live pages include their own cookie/promotion overlays. All 17 original URLs have local preview images. The interactive index handles image loading and failure without broken-image icons.
 
 The product designs in `public/brisk/design` are resized copies of the supplied work, not generated mockups. Logos are supplied SVGs; the favicon uses their original symbol. These design examples do not imply ownership of third-party brands pictured inside them.
 

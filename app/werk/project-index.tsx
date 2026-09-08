@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { projects } from '../projects';
+import { PreviewImage } from './preview-image';
 export function ProjectIndex() {
   const [active, setActive] = useState(0);
   const project = projects[active];
@@ -12,21 +13,7 @@ export function ProjectIndex() {
           className="index-preview-image"
           style={{ background: project.theme }}
         >
-          {project.image ? (
-            <img
-              key={project.image}
-              src={project.image}
-              width="1440"
-              height="900"
-              alt={`Websitevoorbeeld van ${project.name}`}
-            />
-          ) : (
-            <span className="index-no-preview">
-              Roetfilter
-              <br />
-              laten reinigen.<small>BEKIJK DE WEBSITE VIA DE PROJECTLINK</small>
-            </span>
-          )}
+          <PreviewImage key={project.url} project={project} />
           <span className="index-preview-number">
             {String(active + 1).padStart(2, '0')} / {projects.length}
           </span>
