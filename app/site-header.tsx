@@ -1,49 +1,86 @@
+import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { MobileNavigation } from './site-interactions';
-
 export function Brand({ footer = false }: { footer?: boolean }) {
   return (
-    <a
-      className={`brand${footer ? ' brand-footer' : ''}`}
+    <Link
       href="/"
-      aria-label="Armatex — home"
+      className={footer ? 'brisk-brand footer-brand' : 'brisk-brand'}
+      aria-label="Brisk — home"
     >
-      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <path
-          d="M4 33 17 7h8L12 33H4Zm14 0 9-18 9 18h-9l-4-8-4 8h-1Z"
-          fill="currentColor"
-        />
-      </svg>
-      <span>
-        armatex<span className="brand-point">.</span>
-      </span>
-    </a>
+      <img src="/brisk/logo-white.svg" width="155" height="40" alt="Brisk" />
+    </Link>
   );
 }
-
 export function SiteHeader({ active }: { active?: 'expertise' }) {
   return (
-    <div className="dark-top">
-      <header className="header wrap">
-        <Brand />
-        <nav className="desktop-nav" aria-label="Hoofdnavigatie">
-          <a
-            href="/expertise"
-            aria-current={active === 'expertise' ? 'page' : undefined}
-          >
-            Onze expertise
-          </a>
-          <a href="/#inspiratie">In beeld</a>
-          <a href="/#aanpak">Onze aanpak</a>
-          <a href="/#armatex">Over Armatex</a>
-        </nav>
-        <div className="header-right">
-          <a className="header-contact" href="/#contact">
-            Bespreek je project <ArrowUpRight size={18} />
-          </a>
-          <MobileNavigation active={active} />
-        </div>
-      </header>
-    </div>
+    <header className="site-header shell">
+      <Brand />
+      <nav aria-label="Hoofdnavigatie">
+        <Link href="/#werk">Ons werk</Link>
+        <Link
+          href="/expertise"
+          aria-current={active === 'expertise' ? 'page' : undefined}
+        >
+          Expertise
+        </Link>
+        <Link href="/#over">Over Brisk</Link>
+      </nav>
+      <a className="header-cta" href="/#contact">
+        Let’s talk <ArrowUpRight size={17} />
+      </a>
+      <MobileNavigation active={active} />
+    </header>
+  );
+}
+export function SiteFooter() {
+  return (
+    <footer className="site-footer shell">
+      <div className="footer-top">
+        <Brand footer />
+        <p>
+          Goed bedacht. Sterk ontworpen.
+          <br />
+          Brisk gebouwd.
+        </p>
+        <a href="#top">Terug naar boven ↑</a>
+      </div>
+      <div className="footer-bottom">
+        <span>© {new Date().getFullYear()} Brisk</span>
+        <span>Websites · Webshops · Software op maat</span>
+        <a href="tel:+32470070981">+32 470 070 981</a>
+      </div>
+    </footer>
+  );
+}
+export function Contact() {
+  return (
+    <section className="contact shell" id="contact">
+      <p className="eyebrow">JOUW VOLGENDE STAP</p>
+      <div className="contact-row">
+        <h2>
+          Een goed idee?
+          <br />
+          <em>Maak het Brisk.</em>
+        </h2>
+        <a
+          className="contact-orbit"
+          href="tel:+32470070981"
+          aria-label="Bel Brisk om je project te bespreken"
+        >
+          <ArrowUpRight size={52} strokeWidth={1} />
+        </a>
+      </div>
+      <div className="contact-bottom">
+        <p>
+          Vertel ons waar je naartoe wilt.
+          <br />
+          We denken graag met je mee.
+        </p>
+        <a href="tel:+32470070981">
+          +32 470 070 981 <ArrowUpRight size={21} />
+        </a>
+      </div>
+    </section>
   );
 }

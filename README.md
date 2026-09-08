@@ -1,37 +1,34 @@
-# Armatex
+# Brisk
 
-Dutch-language website for Armatex, built with React, Vinext and the Sites starter. The design uses deep navy, lime accents, three generated architectural mood images, an expandable image gallery, and two silent video montages. The visuals are illustrative; they are not presented as completed Armatex projects.
+Brisk portfolio website in Dutch, built with React, Vinext and Sites. Includes the homepage, an expertise page, 17 website projects, all 55 supplied product-design images, an accessible image viewer, mobile navigation and phone contact.
 
-## Local development
+## Development
 
-Requires Node.js 22.13 or later.
-
-```sh
-npm ci
-npm run dev
-```
-
-## Production build
-
-```sh
-npm run build
-```
+Node.js 22.13 or later. Run `npm ci` and `npm run dev`. Run `npm run build` for production.
 
 ## Content
 
-- Main page and copy: `app/page.tsx`
-- Service descriptions and mobile navigation: `app/site-interactions.tsx`
-- Brand styling and responsive layouts: `app/globals.css` and `app/media.css`
-- Accessible image gallery and video players: `app/site-media.tsx`
-- Video asset paths: `app/media-assets.ts`
-- Page title and description: `app/layout.tsx`
+- `app/page.tsx`: homepage
+- `app/expertise/page.tsx`: websites, webshops, custom software and product design
+- `app/projects.ts`: all user-supplied portfolio URLs
+- `app/brisk-data.ts`: services and approach
+- `app/design-assets.json`: supplied design asset index
+- `app/site-media.tsx`: portfolio expansion, design lightbox and showreel playback
+- `app/brisk.css`: responsive visual styling
+- `app/site-header.tsx`: navigation, shared footer and phone contact
 
-Company contact details, operating region, and confirmed service scope have not yet been provided. The private preview uses draft service copy and clearly states that contact details are forthcoming. Replace that message with verified contact information before public launch. No enquiries are collected or sent. No fictional testimonials, project history, or certifications are included.
+The user supplied the logos and 55 design images in Brisk.zip, and named NMBS, Idewe, De Watergroep, RBFA Voetbalbond and Museumpass as clients. Phone: +32 470 070 981. No email address or contact form backend is configured; contact actions use the confirmed telephone number.
 
-The original GitHub remote is retained as `origin`. Hosting metadata is in `.openai/hosting.json`. Credentials must never be added to source or Git configuration.
+## Portfolio images
 
-## Visuals and video
+Website captures were obtained through Microlink on 8 September 2026 and stored locally in `public/brisk/websites`. No visitor-time API request or API key is needed. The capture for Roetfilterlatenreinigen did not render its content, so that project uses a name card and working external link. Some live pages include their own cookie/promotion overlays or incomplete hero animation in their captures. All 17 original URLs remain available.
 
-Images were created using the built-in image generation tool. The 18-second hero loop is rendered with Remotion from two new GPT Image 2 architectural images, with cyclic camera movement, light sweeps and crossfades. The 19-second atmosphere film is a montage of generated still images. Both are encoded as silent H.264 MP4s. They are not synthesized moving scenes. All media is served locally, with no third-party video embeds, trackers, or additional account requirement. The hero respects reduced-motion and data-saving preferences, offers pause/play, and pauses offscreen or in a hidden tab. The atmosphere film loads and plays only after a visitor starts it; native video controls then remain available.
+The product designs in `public/brisk/design` are resized copies of the supplied work, not generated mockups. Logos are supplied SVGs; the favicon uses their original symbol. These design examples do not imply ownership of third-party brands pictured inside them.
 
-Rebuild the hero with `npm run render:hero` (Google Chrome on macOS, or set `REMOTION_BROWSER_EXECUTABLE`). The composition is in `motion/ArmatexLight.tsx`; review frames are written to `work/remotion-review`. After changing the opening frame, copy `frame-0.jpg` to `public/images/armatex-light-poster.jpg`.
+## Showreel
+
+`npm run render:hero` renders the 15-second silent Brisk montage with Remotion from three supplied product designs. Source: `motion/BriskShowreel.tsx`. Set `REMOTION_BROWSER_EXECUTABLE` for a Chrome executable outside the default macOS location. The composition loops, respects reduced-motion and data-saving preferences in the site, offers pause/play, and pauses when offscreen or in a hidden tab. Review stills go into the ignored `work/remotion-review` directory.
+
+## Hosting
+
+The original GitHub remote remains `origin`. The existing Sites project is retained in `.openai/hosting.json`; its URL still contains the former brand's slug. Credentials must never be stored in source, Git config or remote URLs.

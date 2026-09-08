@@ -12,7 +12,7 @@ const root = process.cwd();
 const review = path.join(root, 'work/remotion-review');
 await mkdir(review, { recursive: true });
 const serveUrl = await bundle({
-  entryPoint: path.join(root, 'motion/ArmatexLight.tsx'),
+  entryPoint: path.join(root, 'motion/BriskShowreel.tsx'),
   publicDir: path.join(root, 'public'),
 });
 const browserExecutable =
@@ -22,10 +22,10 @@ const browser = await openBrowser('chrome', { browserExecutable });
 try {
   const composition = await selectComposition({
     serveUrl,
-    id: 'ArmatexLight',
+    id: 'BriskShowreel',
     puppeteerInstance: browser,
   });
-  for (const frame of [0, 170, 270, 380, 539])
+  for (const frame of [0, 145, 300, 449])
     await renderStill({
       composition,
       serveUrl,
@@ -46,7 +46,7 @@ try {
     pixelFormat: 'yuv420p',
     crf: 21,
     concurrency: 3,
-    outputLocation: path.join(root, 'public/videos/armatex-light-remotion.mp4'),
+    outputLocation: path.join(root, 'public/brisk/showreel.mp4'),
     onProgress: ({ progress }) => {
       const mark = Math.floor(progress * 10);
       if (mark !== last) {
@@ -55,7 +55,7 @@ try {
       }
     },
   });
-  console.log('Rendered public/videos/armatex-light-remotion.mp4');
+  console.log('Rendered public/brisk/showreel.mp4');
 } finally {
   await browser.close({ silent: true });
 }

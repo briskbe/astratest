@@ -1,345 +1,208 @@
-import {
-  ArrowDown,
-  ArrowUpRight,
-  Check,
-  ChevronRight,
-  Lightbulb,
-  PlugZap,
-  Play,
-  ShieldCheck,
-  Zap,
-} from 'lucide-react';
-import { ServiceOverview } from './site-interactions';
-import { Brand, SiteHeader } from './site-header';
-import { AtmosphereFilm, HeroMedia, InspirationGallery } from './site-media';
-import { mediaAssets } from './media-assets';
-import './home-future.css';
-
-const steps = [
-  {
-    number: '01',
-    title: 'Eerst luisteren.',
-    text: 'Wat wil je realiseren? We bekijken je plannen, stellen de juiste vragen en denken mee over wat je nodig hebt.',
-  },
-  {
-    number: '02',
-    title: 'Dan helder plannen.',
-    text: 'Je krijgt een concreet voorstel. We stemmen de oplossing en uitvoering af op je ruimte, wensen en budget.',
-  },
-  {
-    number: '03',
-    title: 'Goed uitvoeren.',
-    text: 'We zorgen voor een doordachte installatie, een verzorgde afwerking en een duidelijke uitleg bij de oplevering.',
-  },
-];
-
+import Link from 'next/link';
+import { ArrowUpRight, ArrowDown } from 'lucide-react';
+import { SiteHeader, SiteFooter, Contact } from './site-header';
+import { ProductGallery, Portfolio, ShowcaseFilm } from './site-media';
+import { services, process } from './brisk-data';
+import { projects } from './projects';
 export default function Home() {
   return (
-    <div id="top" className="home-page">
+    <div id="top">
       <a className="skip-link" href="#main">
         Naar de inhoud
       </a>
+      <SiteHeader />
       <main id="main">
-        <div className="home-stage">
-          <HeroMedia
-            source={mediaAssets.hero}
-            poster={mediaAssets.heroPoster}
-          />
-          <div className="home-stage-shade" aria-hidden="true" />
-          <SiteHeader />
-          <section className="hero wrap" aria-labelledby="hero-title">
-            <div className="hero-copy">
-              <p className="eyebrow">
-                <span className="status-dot" /> ELEKTRICITEIT. MET INZICHT.
-              </p>
-              <h1 id="hero-title">
-                Sterk in stroom.
-                <br />
-                <span>Thuis in techniek.</span>
-              </h1>
-              <p className="hero-intro">
-                Van het eerste lichtpunt tot een slimme installatie. Armatex
-                brengt energie, comfort en zekerheid in je woning of
-                onderneming.
-              </p>
-              <div className="hero-actions">
-                <a className="button button-lime" href="/expertise">
-                  Ontdek onze expertise <ArrowUpRight size={20} />
-                </a>
-                <a className="text-link hero-film-button" href="#sfeerfilm">
-                  Bekijk de sfeerfilm <Play size={16} />
-                </a>
-              </div>
-              <div className="hero-assurance">
-                <ShieldCheck size={21} />
-                <span>Doordacht advies. Vakkundig uitgevoerd.</span>
-              </div>
-            </div>
-            <a className="hero-scene-card" href="/expertise#verlichting">
-              <Lightbulb size={24} strokeWidth={1.3} />
-              <span>
-                <small>LICHT. RUIMTE. COMFORT.</small>
-                <strong>Techniek die je voelt.</strong>
-              </span>
-              <ArrowUpRight size={21} />
-            </a>
-          </section>
-          <div className="hero-foot wrap">
-            <span>VOOR WONINGEN & ONDERNEMINGEN</span>
-            <a href="#expertise">
-              Goed aangesloten op morgen <ArrowDown size={14} />
-            </a>
+        <section className="brisk-hero shell">
+          <div className="hero-kicker">
+            <span className="status-dot" /> DESIGN & DEVELOPMENT STUDIO{' '}
+            <span className="hero-location">VAN IDEE TOT IMPACT</span>
           </div>
-        </div>
-        <div className="specialties" aria-label="Onze specialisaties">
-          <div className="wrap specialties-inner">
-            <span>
-              <Zap /> Elektriciteit
-            </span>
-            <span>
-              <Lightbulb /> Verlichting
-            </span>
-            <span>
-              <PlugZap /> Slimme installaties
-            </span>
-            <span>
-              <ShieldCheck /> Zekerheid
-            </span>
-          </div>
-        </div>
-        <section
-          className="expertise section wrap"
-          id="expertise"
-          aria-labelledby="expertise-title"
-        >
-          <p className="section-label">
-            <span>01</span> ONZE EXPERTISE
-          </p>
-          <div className="section-heading">
-            <h2 id="expertise-title">
-              Elke aansluiting telt.
+          <div className="hero-heading">
+            <h1>
+              Digitale ambities.
               <br />
-              <span>Die met jou ook.</span>
-            </h2>
-            <p>
-              Je plannen vormen het vertrekpunt. Wij vertalen ze naar techniek
-              die klopt — vandaag én met het oog op morgen.
-            </p>
-          </div>
-          <ServiceOverview />
-          <div className="expertise-note">
-            <span>
-              <Check size={17} /> Nieuwbouw of renovatie
-            </span>
-            <span>
-              <Check size={17} /> Particulier of professioneel
-            </span>
-            <span>
-              <Check size={17} /> Advies tot afwerking
-            </span>
-          </div>
-        </section>
-        <section
-          className="visual-section"
-          id="inspiratie"
-          aria-labelledby="visual-title"
-        >
-          <div className="wrap">
-            <p className="section-label">
-              <span>02</span> RUIMTE VOOR INSPIRATIE
-            </p>
-            <div className="section-heading visual-heading">
-              <h2 id="visual-title">
-                Techniek die je ziet.
-                <br />
-                <span>Comfort dat je voelt.</span>
-              </h2>
+              <em>Brisk gebouwd.</em>
+            </h1>
+            <div className="hero-description">
               <p>
-                Een huis wordt pas een thuis als alles samenkomt. Ontdek wat
-                doordachte verlichting en slimme energie kunnen doen.
+                Wij bouwen websites, webshops en software op maat. Doordacht in
+                gebruik. Onmiskenbaar in design.
               </p>
+              <Link href="#werk" className="button button-lime">
+                Ontdek ons werk <ArrowUpRight size={20} />
+              </Link>
             </div>
-            <InspirationGallery />
-            <div className="visual-caption">
-              <span>Gegenereerde sfeerbeelden ter inspiratie.</span>
-              <a href="#contact">
-                Wat kunnen we voor jouw ruimte doen? <ArrowUpRight size={17} />
+          </div>
+          <div className="hero-showcase">
+            <div className="showcase-caption">
+              <span>DESIGN DAT VERDER GAAT</span>
+              <h2>
+                Mooi is het begin.
+                <br />
+                Werken is de essentie.
+              </h2>
+              <a href="#design">
+                Ontdek product design <ArrowUpRight size={19} />
               </a>
             </div>
-          </div>
-        </section>
-        <section
-          className="about-section"
-          id="armatex"
-          aria-labelledby="about-title"
-        >
-          <div className="wrap about-grid">
-            <div className="about-heading">
-              <p className="section-label">
-                <span>03</span> DE KRACHT VAN ARMATEX
-              </p>
-              <h2 id="about-title">
-                Achter goed comfort
-                <br />
-                zit <span>goed vakwerk.</span>
-              </h2>
-              <p>
-                Je ziet het aan de afwerking. Je merkt het aan het gemak. En je
-                voelt het wanneer alles gewoon werkt.
-              </p>
-              <a className="text-link" href="#aanpak">
-                Maak kennis met onze aanpak <ArrowUpRight size={19} />
-              </a>
-            </div>
-            <div className="about-values">
-              <div>
-                <span className="value-number">01 /</span>
-                <div>
-                  <h3>Meedenken vanaf de start</h3>
-                  <p>
-                    Een praktische oplossing begint bij inzicht in jouw plannen.
-                    We kijken verder dan de aansluiting alleen.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <span className="value-number">02 /</span>
-                <div>
-                  <h3>Oog voor de afwerking</h3>
-                  <p>
-                    De techniek achter de muur verdient evenveel aandacht als
-                    het lichtpunt ervoor.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <span className="value-number">03 /</span>
-                <div>
-                  <h3>Ruimte voor morgen</h3>
-                  <p>
-                    Je leven verandert. Daarom denken we bij elke installatie
-                    ook aan wat je later nodig kunt hebben.
-                  </p>
-                </div>
-              </div>
+            <ShowcaseFilm />
+            <div className="showcase-index">
+              BRISK SELECTED WORK <span>PRODUCT DESIGN</span>
             </div>
           </div>
-        </section>
-        <section
-          className="film-section wrap"
-          id="sfeerfilm"
-          aria-labelledby="film-title"
-        >
-          <div className="film-heading">
-            <div>
-              <p className="section-label">
-                <span>04</span> ARMATEX IN BEELD
-              </p>
-              <h2 id="film-title">
-                Van een goed idee
-                <br />
-                naar een fijn gevoel.
-              </h2>
-            </div>
-            <p>
-              Een warme avond. Een huis dat met je meedenkt. En energie voor de
-              volgende dag.
-            </p>
-          </div>
-          <AtmosphereFilm source={mediaAssets.film} />
-          <p className="film-note">
-            Een korte montage van gegenereerde sfeerbeelden. Verlichting,
-            wooncomfort en laadoplossingen in één verhaal.
-          </p>
-        </section>
-        <section
-          className="approach section wrap"
-          id="aanpak"
-          aria-labelledby="approach-title"
-        >
-          <p className="section-label">
-            <span>05</span> ONZE AANPAK
-          </p>
-          <div className="section-heading">
-            <h2 id="approach-title">
-              Van eerste idee
-              <br />
-              tot laatste lichtpunt.
-            </h2>
-            <p>
-              Geen onnodig ingewikkeld verhaal. Wel persoonlijk contact, heldere
-              afspraken en aandacht voor je project.
-            </p>
-          </div>
-          <ol className="steps">
-            {steps.map((step, index) => (
-              <li key={step.number}>
-                <div className="step-track">
-                  <span>{step.number}</span>
-                  {index < steps.length - 1 && (
-                    <ChevronRight size={18} aria-hidden="true" />
-                  )}
-                </div>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </li>
-            ))}
-          </ol>
-        </section>
-        <section
-          className="contact-section"
-          id="contact"
-          aria-labelledby="contact-title"
-        >
-          <div className="wrap contact-inner">
-            <div>
-              <p className="section-label">JOUW PLANNEN. ONZE ENERGIE.</p>
-              <h2 id="contact-title">
-                Mooi werk begint
-                <br />
-                met een <span>goed gesprek.</span>
-              </h2>
-              <p className="contact-description">
-                Een nieuwbouw, renovatie of een slim idee?
-                <br />
-                Armatex denkt graag met je mee.
-              </p>
-              <p className="contact-pending">
-                <span className="status-dot" /> Onze contactgegevens zijn
-                binnenkort beschikbaar.
-              </p>
-            </div>
-            <ArrowUpRight
-              className="contact-arrow"
-              strokeWidth={1}
-              aria-hidden="true"
-            />
-          </div>
-        </section>
-      </main>
-      <footer className="footer wrap">
-        <div className="footer-top">
-          <Brand footer />
-          <p>
-            Goed aangesloten.
-            <br />
-            Helemaal op morgen.
-          </p>
-          <nav aria-label="Footernavigatie">
-            <a href="/expertise">Expertise</a>
-            <a href="#inspiratie">In beeld</a>
-            <a href="#aanpak">Aanpak</a>
-            <a href="#contact">Contact</a>
-          </nav>
-          <a className="back-top" href="#top" aria-label="Terug naar boven">
-            <ArrowUpRight size={22} />
+          <a className="hero-scroll" href="#werk">
+            Scroll om te ontdekken <ArrowDown size={16} />
           </a>
-        </div>
-        <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} Armatex</p>
-          <span>Elektriciteit. Met inzicht.</span>
-        </div>
-      </footer>
+        </section>
+        <section className="client-strip shell">
+          <p>IN GOED GEZELSCHAP</p>
+          <div>
+            <span className="client-nmbs">NMBS</span>
+            <span>idewe</span>
+            <span>De Watergroep</span>
+            <span>
+              RBFA <small>Voetbalbond</small>
+            </span>
+            <span>museumPASSmusées</span>
+          </div>
+        </section>
+        <section className="section shell" id="werk">
+          <div className="section-top">
+            <p className="eyebrow">
+              <span>01 /</span> GESELECTEERD WERK
+            </p>
+            <span className="section-note">VAN AMBITIE NAAR ONLINE</span>
+          </div>
+          <div className="section-heading">
+            <h2>
+              Elk merk zijn verhaal.
+              <br />
+              <em>Elke website zijn karakter.</em>
+            </h2>
+            <p>
+              Een selectie websites die we hebben gebouwd. Verschillende
+              sectoren. Dezelfde aandacht voor wat een merk bijzonder maakt.
+            </p>
+          </div>
+          <Portfolio projects={projects} />
+        </section>
+        <section className="expertise-band" id="expertise">
+          <div className="shell">
+            <div className="section-top">
+              <p className="eyebrow">
+                <span>02 /</span> WAT WE DOEN
+              </p>
+              <Link href="/expertise" className="inline-link">
+                Onze expertise <ArrowUpRight size={18} />
+              </Link>
+            </div>
+            <div className="service-heading">
+              <h2>
+                Goed design ontmoet
+                <br />
+                <em>sterke development.</em>
+              </h2>
+              <p>
+                Van een overtuigende eerste indruk tot software die het verschil
+                maakt in je dagelijkse werk.
+              </p>
+            </div>
+            <div className="services-list">
+              {services.map((service) => (
+                <Link
+                  href={`/expertise#${service.id}`}
+                  key={service.id}
+                  className="service-row"
+                >
+                  <span>{service.number}</span>
+                  <h3>{service.title}</h3>
+                  <p>{service.line}</p>
+                  <ArrowUpRight size={28} strokeWidth={1.2} />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="section shell design-section" id="design">
+          <div className="section-top">
+            <p className="eyebrow">
+              <span>03 /</span> PRODUCT DESIGN
+            </p>
+            <span className="section-note">DETAILS MAKEN HET VERSCHIL</span>
+          </div>
+          <div className="section-heading">
+            <h2>
+              Niet alleen hoe het eruitziet.
+              <br />
+              <em>Vooral hoe het voelt.</em>
+            </h2>
+            <p>
+              Apps, dashboards en digitale ervaringen. Ontwerpen waarin vorm en
+              gebruik samenkomen.
+            </p>
+          </div>
+          <ProductGallery />
+        </section>
+        <section className="about-section shell" id="over">
+          <p className="eyebrow">
+            <span>04 /</span> OVER BRISK
+          </p>
+          <div className="about-grid">
+            <h2>
+              Korte lijnen.
+              <br />
+              Grote ideeën.
+              <br />
+              <em>Sterk resultaat.</em>
+            </h2>
+            <div>
+              <p className="about-lead">
+                Brisk brengt design en development samen. Zodat jouw idee van de
+                eerste schets tot de laatste interactie klopt.
+              </p>
+              <p>
+                We werken voor ondernemers en organisaties die digitaal vooruit
+                willen. Met een website die hun verhaal vertelt, een webshop die
+                prettig werkt of software die precies past.
+              </p>
+              <p>
+                Van NMBS en Idewe tot De Watergroep, RBFA Voetbalbond en
+                Museumpass: we werken voor uiteenlopende klanten, met aandacht
+                voor hun eigen uitdagingen.
+              </p>
+              <a className="inline-link" href="#contact">
+                Laten we kennismaken <ArrowUpRight size={20} />
+              </a>
+            </div>
+          </div>
+        </section>
+        <section className="section shell" id="aanpak">
+          <div className="section-top">
+            <p className="eyebrow">
+              <span>05 /</span> ONZE AANPAK
+            </p>
+            <span className="section-note">SAMEN VAN START TOT LANCERING</span>
+          </div>
+          <div className="section-heading">
+            <h2>
+              Een helder proces.
+              <br />
+              <em>Een beter eindresultaat.</em>
+            </h2>
+          </div>
+          <div className="process-grid">
+            {process.map(([title, text], i) => (
+              <article key={title}>
+                <span>0{i + 1}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+        <Contact />
+      </main>
+      <SiteFooter />
     </div>
   );
 }
