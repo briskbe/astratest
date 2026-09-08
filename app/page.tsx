@@ -29,9 +29,9 @@ export default function Home() {
                 Wij bouwen websites, webshops en software op maat. Doordacht in
                 gebruik. Onmiskenbaar in design.
               </p>
-              <Link href="/werk" className="button button-lime">
+              <a href="/werk" className="button button-lime">
                 Ontdek ons werk <ArrowUpRight size={20} />
-              </Link>
+              </a>
             </div>
           </div>
           <div className="hero-showcase">
