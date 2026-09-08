@@ -142,7 +142,11 @@ export function ShowcaseFilm() {
     </div>
   );
 }
-export function ProductGallery() {
+export function ProductGallery({
+  initialCount = 8,
+}: {
+  initialCount?: number;
+}) {
   const [expanded, setExpanded] = useState(false);
   const [selected, setSelected] = useState(0);
   const [open, setOpen] = useState(false);
@@ -168,26 +172,28 @@ export function ProductGallery() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <div className="design-grid" id="design-grid">
-        {(expanded ? designs : designs.slice(0, 8)).map((asset, i) => (
-          <DialogTrigger
-            key={asset.src}
-            className="design-tile"
-            onClick={() => setSelected(i)}
-            aria-label={`Vergroot ${labels[asset.name] || `productdesign ${asset.name}`}`}
-          >
-            <img
-              src={asset.src}
-              width={asset.width}
-              height={asset.height}
-              alt={labels[asset.name] || `Brisk productdesign ${asset.name}`}
-              loading="lazy"
-            />
-            <span className="design-caption">
-              <span>{labels[asset.name] || 'Interface & interactie'}</span>
-              <Expand size={16} />
-            </span>
-          </DialogTrigger>
-        ))}
+        {(expanded ? designs : designs.slice(0, initialCount)).map(
+          (asset, i) => (
+            <DialogTrigger
+              key={asset.src}
+              className="design-tile"
+              onClick={() => setSelected(i)}
+              aria-label={`Vergroot ${labels[asset.name] || `productdesign ${asset.name}`}`}
+            >
+              <img
+                src={asset.src}
+                width={asset.width}
+                height={asset.height}
+                alt={labels[asset.name] || `Brisk productdesign ${asset.name}`}
+                loading="lazy"
+              />
+              <span className="design-caption">
+                <span>{labels[asset.name] || 'Interface & interactie'}</span>
+                <Expand size={16} />
+              </span>
+            </DialogTrigger>
+          ),
+        )}
       </div>
       <button
         className="button button-outline gallery-more"

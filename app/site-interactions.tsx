@@ -10,7 +10,11 @@ import {
   SheetDescription,
   SheetClose,
 } from '@/components/ui/sheet';
-export function MobileNavigation({ active }: { active?: 'expertise' }) {
+export function MobileNavigation({
+  active,
+}: {
+  active?: 'expertise' | 'werk';
+}) {
   const [open, setOpen] = useState(false);
   return (
     <div className="mobile-menu">
@@ -28,7 +32,7 @@ export function MobileNavigation({ active }: { active?: 'expertise' }) {
           </SheetClose>
           <nav>
             {[
-              ['Ons werk', '/#werk'],
+              ['Ons werk', '/werk'],
               ['Expertise', '/expertise'],
               ['Product design', '/#design'],
               ['Over Brisk', '/#over'],
@@ -39,7 +43,8 @@ export function MobileNavigation({ active }: { active?: 'expertise' }) {
                 href={href}
                 onClick={() => setOpen(false)}
                 aria-current={
-                  active === 'expertise' && href === '/expertise'
+                  (active === 'expertise' && href === '/expertise') ||
+                  (active === 'werk' && href === '/werk')
                     ? 'page'
                     : undefined
                 }

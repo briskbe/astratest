@@ -87,7 +87,7 @@ export default function Expertise() {
         <section className="expertise-end shell">
           <p className="eyebrow">VAN IDEE NAAR BEWIJS</p>
           <h2>Ons werk vertelt de rest.</h2>
-          <Link href="/#werk" className="button button-outline">
+          <Link href="/werk" className="button button-outline">
             Bekijk onze projecten <ArrowUpRight size={20} />
           </Link>
         </section>

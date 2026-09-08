@@ -1291,3 +1291,12 @@ em {
     padding: 12px !important;
   }
 }
+.work-page-entry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 25px;
+  font-size: 0.9rem;
+  color: var(--lime);
+}

@@ -1,6 +1,6 @@
 # Brisk
 
-Brisk portfolio website in Dutch, built with React, Vinext and Sites. Includes the homepage, an expertise page, 17 website projects, all 55 supplied product-design images, an accessible image viewer, mobile navigation and phone contact.
+Brisk portfolio website in Dutch, built with React, Vinext and Sites. Includes the homepage, dedicated work and expertise pages, 17 website projects, all 55 supplied product-design images, an accessible image viewer, mobile navigation and phone contact.
 
 ## Development
 
@@ -9,6 +9,8 @@ Node.js 22.13 or later. Run `npm ci` and `npm run dev`. Run `npm run build` for 
 ## Content
 
 - `app/page.tsx`: homepage
+- `app/werk/page.tsx`: curated project stories, product design, and all 17 websites
+- `app/werk/project-index.tsx`: hover/focus website previews, external project links and mobile thumbnails
 - `app/expertise/page.tsx`: websites, webshops, custom software and product design
 - `app/projects.ts`: all user-supplied portfolio URLs
 - `app/brisk-data.ts`: services and approach

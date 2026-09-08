@@ -28,7 +28,7 @@ export default function Home() {
                 Wij bouwen websites, webshops en software op maat. Doordacht in
                 gebruik. Onmiskenbaar in design.
               </p>
-              <Link href="#werk" className="button button-lime">
+              <Link href="/werk" className="button button-lime">
                 Ontdek ons werk <ArrowUpRight size={20} />
               </Link>
             </div>
@@ -85,6 +85,9 @@ export default function Home() {
             </p>
           </div>
           <Portfolio projects={projects} />
+          <Link href="/werk" className="work-page-entry">
+            Ontdek het verhaal achter ons werk <ArrowUpRight size={19} />
+          </Link>
         </section>
         <section className="expertise-band" id="expertise">
           <div className="shell">

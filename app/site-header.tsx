@@ -12,12 +12,17 @@ export function Brand({ footer = false }: { footer?: boolean }) {
     </Link>
   );
 }
-export function SiteHeader({ active }: { active?: 'expertise' }) {
+export function SiteHeader({ active }: { active?: 'expertise' | 'werk' }) {
   return (
     <header className="site-header shell">
       <Brand />
       <nav aria-label="Hoofdnavigatie">
-        <Link href="/#werk">Ons werk</Link>
+        <Link
+          href="/werk"
+          aria-current={active === 'werk' ? 'page' : undefined}
+        >
+          Ons werk
+        </Link>
         <Link
           href="/expertise"
           aria-current={active === 'expertise' ? 'page' : undefined}
