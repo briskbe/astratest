@@ -1,5 +1,4 @@
 import { ClientLogos } from './client-logos';
-import Link from 'next/link';
 import { ArrowUpRight, ArrowDown } from 'lucide-react';
 import { SiteHeader, SiteFooter, Contact } from './site-header';
 import { ProductGallery, Portfolio, ShowcaseFilm } from './site-media';
@@ -78,9 +77,9 @@ export default function Home() {
             </p>
           </div>
           <Portfolio projects={projects} />
-          <Link href="/werk" className="work-page-entry">
+          <a href="/werk" className="work-page-entry">
             Ontdek het verhaal achter ons werk <ArrowUpRight size={19} />
-          </Link>
+          </a>
         </section>
         <section className="expertise-band" id="expertise">
           <div className="shell">
@@ -88,9 +87,9 @@ export default function Home() {
               <p className="eyebrow">
                 <span>02 /</span> WAT WE DOEN
               </p>
-              <Link href="/expertise" className="inline-link">
+              <a href="/expertise" className="inline-link">
                 Onze expertise <ArrowUpRight size={18} />
-              </Link>
+              </a>
             </div>
             <div className="service-heading">
               <h2>
@@ -105,7 +104,7 @@ export default function Home() {
             </div>
             <div className="services-list">
               {services.map((service) => (
-                <Link
+                <a
                   href={`/expertise#${service.id}`}
                   key={service.id}
                   className="service-row"
@@ -114,7 +113,7 @@ export default function Home() {
                   <h3>{service.title}</h3>
                   <p>{service.line}</p>
                   <ArrowUpRight size={28} strokeWidth={1.2} />
-                </Link>
+                </a>
               ))}
             </div>
           </div>

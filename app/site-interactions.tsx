@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import Link from 'next/link';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import {
   Sheet,
@@ -38,7 +37,7 @@ export function MobileNavigation({
               ['Over Brisk', '/#over'],
               ['Contact', '/#contact'],
             ].map(([label, href]) => (
-              <Link
+              <a
                 key={href}
                 href={href}
                 onClick={() => setOpen(false)}
@@ -51,7 +50,7 @@ export function MobileNavigation({
               >
                 {label}
                 <ArrowUpRight />
-              </Link>
+              </a>
             ))}
           </nav>
           <a href="tel:+32470070981">+32 470 070 981</a>

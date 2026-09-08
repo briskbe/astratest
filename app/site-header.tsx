@@ -1,15 +1,14 @@
-import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { MobileNavigation } from './site-interactions';
 export function Brand({ footer = false }: { footer?: boolean }) {
   return (
-    <Link
+    <a
       href="/"
       className={footer ? 'brisk-brand footer-brand' : 'brisk-brand'}
       aria-label="Brisk — home"
     >
       <img src="/brisk/logo-white.svg" width="155" height="40" alt="Brisk" />
-    </Link>
+    </a>
   );
 }
 export function SiteHeader({ active }: { active?: 'expertise' | 'werk' }) {
@@ -17,19 +16,19 @@ export function SiteHeader({ active }: { active?: 'expertise' | 'werk' }) {
     <header className="site-header shell">
       <Brand />
       <nav aria-label="Hoofdnavigatie">
-        <Link
+        <a
           href="/werk"
           aria-current={active === 'werk' ? 'page' : undefined}
         >
           Ons werk
-        </Link>
-        <Link
+        </a>
+        <a
           href="/expertise"
           aria-current={active === 'expertise' ? 'page' : undefined}
         >
           Expertise
-        </Link>
-        <Link href="/#over">Over Brisk</Link>
+        </a>
+        <a href="/#over">Over Brisk</a>
       </nav>
       <a className="header-cta" href="/#contact">
         Let’s talk <ArrowUpRight size={17} />
