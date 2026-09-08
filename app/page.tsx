@@ -1,3 +1,4 @@
+import { ClientLogos } from './client-logos';
 import Link from 'next/link';
 import { ArrowUpRight, ArrowDown } from 'lucide-react';
 import { SiteHeader, SiteFooter, Contact } from './site-header';
@@ -56,15 +57,7 @@ export default function Home() {
         </section>
         <section className="client-strip shell">
           <p>IN GOED GEZELSCHAP</p>
-          <div>
-            <span className="client-nmbs">NMBS</span>
-            <span>idewe</span>
-            <span>De Watergroep</span>
-            <span>
-              RBFA <small>Voetbalbond</small>
-            </span>
-            <span>museumPASSmusées</span>
-          </div>
+          <ClientLogos />
         </section>
         <section className="section shell" id="werk">
           <div className="section-top">

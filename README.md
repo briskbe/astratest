@@ -34,3 +34,7 @@ The product designs in `public/brisk/design` are resized copies of the supplied 
 ## Hosting
 
 The original GitHub remote remains `origin`. The existing Sites project is retained in `.openai/hosting.json`; its URL still contains the former brand's slug. Credentials must never be stored in source, Git config or remote URLs.
+
+## Customer logos
+
+NMBS, IDEWE, De Watergroep and museumPASSmusées assets were fetched through the authenticated Brandfetch Brand API using their official domains. RBFA had no logo in the Brandfetch response, so its original association SVG was retrieved from `https://www.rbfa.be/assets/img/logo.svg`. Files are served locally from `public/brisk/clients` and shared by both customer strips through `app/client-logos.tsx`. Original colors and proportions are preserved on a light background. The supplied API credential was used only in memory for retrieval and is not part of the app, public files, Git, or runtime configuration.

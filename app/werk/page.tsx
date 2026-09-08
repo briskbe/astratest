@@ -1,3 +1,4 @@
+import { ClientLogos } from '../client-logos';
 import type { Metadata } from 'next';
 import { ArrowUpRight, ArrowDown } from 'lucide-react';
 import { SiteHeader, SiteFooter, Contact } from '../site-header';
@@ -186,15 +187,7 @@ export default function Work() {
         </section>
         <section className="work-clients shell">
           <p className="eyebrow">IN GOED GEZELSCHAP</p>
-          <div>
-            <span>NMBS</span>
-            <span>idewe</span>
-            <span>De Watergroep</span>
-            <span>
-              RBFA <small>Voetbalbond</small>
-            </span>
-            <span>Museumpass</span>
-          </div>
+          <ClientLogos />
           <p>En nog veel meer mooie samenwerkingen.</p>
         </section>
         <Contact />

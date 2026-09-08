@@ -1300,3 +1300,99 @@ em {
   font-size: 0.9rem;
   color: var(--lime);
 }
+.client-logos {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: center;
+  gap: 28px;
+  margin: 32px 0 0;
+  padding: 28px 32px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #d8edcb66;
+  border-radius: 14px;
+  box-shadow: 0 12px 38px #00000012;
+}
+.client-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: 112px;
+  overflow: hidden;
+}
+.client-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 170px;
+  max-height: 92px;
+  object-fit: contain;
+}
+.client-logo-nmbs img {
+  max-width: 106px;
+  max-height: 72px;
+}
+.client-logo-watergroep img {
+  max-width: 98px;
+  max-height: 94px;
+}
+.client-logo-rbfa img {
+  max-width: 176px;
+}
+.client-logo-museumpass img {
+  flex-shrink: 0;
+  width: 195px;
+  height: 195px;
+  max-width: none;
+  max-height: none;
+}
+.work-clients .client-logos {
+  margin-bottom: 28px;
+}
+@media (max-width: 1000px) {
+  .client-logos {
+    gap: 20px;
+    padding: 20px 25px;
+  }
+  .client-logo-idewe img,
+  .client-logo-rbfa img {
+    max-width: 145px;
+  }
+  .client-logo-museumpass img {
+    width: 180px;
+    height: 180px;
+  }
+}
+@media (max-width: 760px) {
+  .client-logos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 26px;
+    padding: 22px;
+  }
+  .client-logo {
+    height: 90px;
+  }
+  .client-logo img {
+    max-height: 80px;
+  }
+  .client-logo-watergroep img {
+    max-height: 84px;
+  }
+  .client-logo-museumpass {
+    grid-column: 1/-1;
+    justify-self: center;
+    width: 180px;
+  }
+  .client-logo-museumpass img {
+    max-height: none;
+    width: 170px;
+    height: 170px;
+  }
+  .client-logo-idewe img {
+    max-width: 145px;
+  }
+  .client-logo-rbfa img {
+    max-width: 160px;
+  }
+}
